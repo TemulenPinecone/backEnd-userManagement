@@ -1,0 +1,24 @@
+{
+  "products": [
+    { "name": "iphone15", "price": 190000 },
+    { "name": "samsungNote", "price": 250000 },
+    { "name": "tablet", "price": 1000000 },
+    { "name": "asfas", "age": "fasfaf" },
+    { "name": "testtest", "age": "testtest" }
+  ],
+  "users": [
+    { "name": "John", "gender": "male" },
+    { "name": "Jemmie", "gender": "female" },
+    { "name": "Paul", "gender": "male" },
+    { "name": "Stephen", "gender": "male" },
+    { "name": "asfas", "age": "fasfaf" },
+    { "name": "asfas", "age": "fasfaf" },
+    { "name": "testtest", "age": "testtest" },
+    { "name": "testtest", "age": "testtest" }
+  ],
+  "newUsers": [
+    { "name": "Bold", "age": 15 },
+    { "name": "testtest", "age": "testtest" },
+    { "name": "testtest", "age": "testtest" }
+  ]
+}
