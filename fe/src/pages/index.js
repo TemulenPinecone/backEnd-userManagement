@@ -3,13 +3,21 @@ import { useState } from "react";
 export default function Home() {
   const backURL = "http://localhost:3001/addUsers";
 
+  const getUsers = async () => {
+    const getNewUsers = await fetch("http://localhost:3001/newUsers");
+    const recievedUsers = await getNewUsers.json();
+    [rcvNewUsers, setrcvNewUsers] = useState([recievedUsers.newUsers]);
+  };
+
+  console.log(rcvNewUsers)
+
   async function handleSendBtn(element) {
     element.preventDefault();
     const data = {
       name: element.target.userName.value,
       age: element.target.userAge.value,
     };
-    console.log(`data`, data);
+    // console.log(`data`, data);
     const option = {
       method: "POST",
       headers: {
@@ -23,12 +31,6 @@ export default function Home() {
     console.log(`FETCHED_JSON`, FETCHED_JSON);
   }
 
-  // const [recievedNewUsers, setrecievedNewUsers] = useState();
-  // const getUsers = async () => {
-  //   const getNewUsers = await fetch("http://localhost:3001/newUsers");
-  //   const recievedUsers = await getNewUsers.json();
-  // };
-
   return (
     <div>
       <form action="" onSubmit={handleSendBtn}>
@@ -36,7 +38,7 @@ export default function Home() {
           <div className="border rounded-lg">
             <label
               htmlFor="userName"
-              className="input input-bordered flex items-center gap-2"
+              className="input input-bordered flex items-center gap-2 px-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -49,16 +51,16 @@ export default function Home() {
               <input
                 id="userName"
                 type="text"
-                className="grow"
+                className="focus:outline-none"
                 placeholder="User name"
                 name="userName"
               />
             </label>
           </div>
-          <div>
+          <div className="border rounded-lg">
             <label
               htmlFor="userAge"
-              className="input input-bordered flex items-center gap-2"
+              className="input input-bordered flex items-center gap-2 px-2"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -72,7 +74,7 @@ export default function Home() {
                 name="userAge"
                 id="userAge"
                 type="text"
-                className="grow"
+                className="focus:outline-none"
                 placeholder="User age"
               />
             </label>
@@ -89,7 +91,7 @@ export default function Home() {
 
       <div>
         <div>
-          {/* {setrecievedNewUsers.newUsers.map((element) => {
+          {/* {recievedUsers.newUsers.map((element) => {
             <div>
               <p>{element.name}</p>
               <p>{element.age}</p>
