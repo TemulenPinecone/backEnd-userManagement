@@ -10,15 +10,10 @@
     { "name": "John", "gender": "male" },
     { "name": "Jemmie", "gender": "female" },
     { "name": "Paul", "gender": "male" },
-    { "name": "Stephen", "gender": "male" },
-    { "name": "asfas", "age": "fasfaf" },
-    { "name": "asfas", "age": "fasfaf" },
-    { "name": "testtest", "age": "testtest" },
-    { "name": "testtest", "age": "testtest" }
+    { "name": "Stephen", "gender": "male" }
   ],
   "newUsers": [
     { "name": "Bold", "age": 15 },
-    { "name": "testtest", "age": "testtest" },
-    { "name": "testtest", "age": "testtest" }
+    { "name": "test", "age": "0222" }
   ]
 }

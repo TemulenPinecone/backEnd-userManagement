@@ -1,11 +1,12 @@
 const cors = require("cors");
 const express = require(`express`);
-const { products, users, newUsers } = require("./dummy.json");
+const bodyParser = require(`body-parser`);
 const fs = require(`fs`);
+
+const { products, users, newUsers } = require("./dummy.json");
 // const products = data.products;
 // const users = data.users;
 const app = express();
-const bodyParser = require(`body-parser`);
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -18,6 +19,10 @@ app.use(cors());
 //   response.type = `application/json`;
 //   response.send({ users });
 // });
+app.get("/newUsers", (request, response) => {
+  response.type = `application/json`;
+  response.send({ newUsers });
+});
 
 // app.get(`/usernames`, (request, response) => {
 //   response.type = `application/json`;
@@ -42,7 +47,7 @@ app.use(cors());
 
 app.post("/addUsers", (req, res) => {
   const addUser = req.body;
-  console.log(`ADD USER`, addUser);
+  // console.log(`ADD USER`, addUser);
   fs.readFile("dummy.json", (error, data) => {
     if (error) {
       console.log("Error in reading file");
@@ -97,3 +102,17 @@ app.post("/addUsers", (req, res) => {
 app.listen(3001, () => {
   console.log(`Server is listening`);
 });
+
+// TRY, CATCH
+// let data = { users: 123 };
+// if (Array.isArray(data.users)) {
+//   data.users, push(newUser);
+// } else {
+//   data.users = [newUser];
+// }
+// try {
+// } catch (error) {
+//   console.log(error.message);
+// }
+// data.users = [];
+// console.log(data);
