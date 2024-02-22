@@ -23,12 +23,11 @@ export default function Home() {
     console.log(`FETCHED_JSON`, FETCHED_JSON);
   }
 
-  const getUsers = async () => {
-    const getNewUsers = await fetch("http://localhost:3001/newUsers");
-    const recievedUsers = await getNewUsers.json();
-    const [recievedNewUsers, setrecievedNewUsers] = useState(recievedUsers);
-  };
-  getUsers();
+  // const [recievedNewUsers, setrecievedNewUsers] = useState();
+  // const getUsers = async () => {
+  //   const getNewUsers = await fetch("http://localhost:3001/newUsers");
+  //   const recievedUsers = await getNewUsers.json();
+  // };
 
   return (
     <div>
@@ -90,13 +89,13 @@ export default function Home() {
 
       <div>
         <div>
-          {setrecievedNewUsers.newUsers.map((element) => {
+          {/* {setrecievedNewUsers.newUsers.map((element) => {
             <div>
               <p>{element.name}</p>
               <p>{element.age}</p>
             </div>;
           })}
-          ;
+          ; */}
         </div>
       </div>
     </div>
