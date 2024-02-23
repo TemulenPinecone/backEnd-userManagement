@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const backURL = "http://localhost:3001/addUsers";
+  const newUserURL = `http://localhost:3001/newUsers`;
 
-  const getUsers = async () => {
-    const getNewUsers = await fetch("http://localhost:3001/newUsers");
-    const recievedUsers = await getNewUsers.json();
-    [rcvNewUsers, setrcvNewUsers] = useState([recievedUsers.newUsers]);
-  };
+  const [users, setusers] = useState([]);
 
-  console.log(rcvNewUsers)
+  async function importUsers() {
+    const FETCHED_USER_DATA = await fetch(newUserURL);
+    const FETCHED_USER_JSON = await FETCHED_USER_DATA.json();
+    setusers([FETCHED_USER_JSON]);
+
+    console.log(FETCHED_USER_JSON);
+  }
+  useEffect(() => {
+    // console.log(`USERS JUST`, users);
+    importUsers();
+  }, []);
+  console.log(`USERS JUST`, users);
 
   async function handleSendBtn(element) {
     element.preventDefault();
@@ -90,15 +98,16 @@ export default function Home() {
       </form>
 
       <div>
-        <div>
-          {/* {recievedUsers.newUsers.map((element) => {
+        {/* <div>
+          {users.map((element) => {
             <div>
               <p>{element.name}</p>
               <p>{element.age}</p>
             </div>;
           })}
-          ; */}
-        </div>
+          ;
+        </div> */}
+        {/* <div>{users}</div> */}
       </div>
     </div>
   );
